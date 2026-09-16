@@ -5,7 +5,7 @@
 If you discover a security vulnerability in this project, please report it **privately** to the project maintainer:
 
 - Email: nikita.berezhnyj@gmail.com
-- Subject: Security Issue in [Project Name]
+- Subject: Security Issue in SHTOPOR (HammerTeam-Project)
 
 Please **do not** create a public issue for security problems. This allows us to fix the issue before it is publicly known.
 
