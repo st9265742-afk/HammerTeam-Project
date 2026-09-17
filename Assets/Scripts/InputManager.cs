@@ -27,6 +27,11 @@ public class InputManager : MonoBehaviour
         _inputSystem.Player.Disable();
     }
 
+    private void OnDestroy()
+    {
+        _inputSystem?.Dispose();
+    }
+
     private void FixedUpdate()
     {
         _movement.ProcessMove(Move);
