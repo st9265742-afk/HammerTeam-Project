@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+﻿using System.IO;
 using UnityEditor;
-using System.IO;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 [CustomEditor(typeof(Readme))]
@@ -41,11 +41,11 @@ sealed class ReadmeEditor : Editor
         Selection.objects = new UnityEngine.Object[] { readmeObject };
         return (Readme)readmeObject;
     }
-    
+
     void RemoveTutorial()
     {
         if (EditorUtility.DisplayDialog("Remove Readme Assets",
-            
+
             $"All contents under {k_ReadmeSourceDirectory} will be removed, are you sure you want to proceed?",
             "Proceed",
             "Cancel"))
