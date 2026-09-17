@@ -2,13 +2,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
-    public float gravity = -9.8f;
-    public float jumpHeight = 3f;
-    public float wallJumpForce = 5f;
-    public float wallJumpDuration = 0.15f;
-    public float wallCheckDistance = 0.6f;
-    public int _wallJumpLimit = 1;
+    [Header("Movement")]
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float gravity = -9.8f;
+
+    [Header("Jump")]
+    [SerializeField] private float jumpHeight = 3f;
+
+    [Header("Wall Jump")]
+    [SerializeField] private float wallJumpForce = 5f;
+    [SerializeField] private float wallJumpDuration = 0.15f;
+    [SerializeField] private float wallCheckDistance = 0.6f;
+    [SerializeField] private int wallJumpLimit = 1;
 
     private bool _isGrounded = false;
     private Vector3 _playerVelocity;
@@ -68,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        if (_wallJumpsUsed >= _wallJumpLimit)
+        if (_wallJumpsUsed >= wallJumpLimit)
         {
             return;
         }

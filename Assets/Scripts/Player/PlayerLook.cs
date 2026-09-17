@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
-    public Camera camera;
-    public float xSensitivity = 30f;
-    public float ySensitivity = 30f;
+    [SerializeField] private Camera camera;
+    [SerializeField] private float xSensitivity = 30f;
+    [SerializeField] private float ySensitivity = 30f;
 
     private float _xRotation = 0f;
 
