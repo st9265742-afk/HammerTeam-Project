@@ -958,7 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a35e8e78b1fc5a4ca020f153d3f6c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponUI
-  weapon: {fileID: 1239376665}
+  weaponController: {fileID: 138601422}
   ammoText: {fileID: 2135579117}
 --- !u!1 &551308666
 GameObject:
