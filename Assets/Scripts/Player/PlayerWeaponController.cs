@@ -4,6 +4,8 @@ public class PlayerWeaponController : MonoBehaviour
 {
     [SerializeField] private Weapon currentWeapon;
 
+    public Weapon CurrentWeapon => currentWeapon;
+
     public void ProcessFire(bool fire, bool alternateFire)
     {
         if (fire)

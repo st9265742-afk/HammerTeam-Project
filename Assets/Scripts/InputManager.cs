@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
 
     public Vector2 Move => _inputSystem.Player.Movement.ReadValue<Vector2>();
     public Vector2 Look => _inputSystem.Player.Look.ReadValue<Vector2>();
+    public bool Interact => _inputSystem.Player.Interact.WasPressedThisFrame();
 
     private void Awake()
     {
