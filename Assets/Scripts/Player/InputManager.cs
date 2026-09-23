@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class InputManager : MonoBehaviour
     private PlayerMovement _movement;
     private PlayerLook _look;
     private PlayerWeaponController _weaponController;
+
+    private bool _gamepadSprintToggled;
 
     public Vector2 Move => _inputSystem.Player.Movement.ReadValue<Vector2>();
     public Vector2 Look => _inputSystem.Player.Look.ReadValue<Vector2>();
@@ -19,6 +22,10 @@ public class InputManager : MonoBehaviour
         _weaponController = GetComponent<PlayerWeaponController>();
 
         _inputSystem.Player.Jump.performed += ctx => _movement.Jump();
+        _inputSystem.Player.NextWeapon.performed += ctx => _weaponController.SwitchWeapon(1);
+        _inputSystem.Player.PreviousWeapon.performed += ctx => _weaponController.SwitchWeapon(-1);
+
+        _inputSystem.Player.Sprint.performed += OnSprintPerformed;
     }
 
     private void OnEnable()
@@ -48,11 +55,32 @@ public class InputManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _movement.ProcessMove(Move);
+        Vector2 move = Move;
+
+        if (move.sqrMagnitude < 0.01f)
+        {
+            _gamepadSprintToggled = false;
+        }
+
+        bool keyboardSprint =
+            _inputSystem.Player.Sprint.IsPressed() &&
+            _inputSystem.Player.Sprint.activeControl?.device is Keyboard;
+
+        bool isSprinting = keyboardSprint || _gamepadSprintToggled;
+
+        _movement.ProcessMove(move, isSprinting);
     }
 
     private void LateUpdate()
     {
         _look.ProcessLook(Look);
+    }
+
+    private void OnSprintPerformed(InputAction.CallbackContext context)
+    {
+        if (context.control.device is Gamepad)
+        {
+            _gamepadSprintToggled = !_gamepadSprintToggled;
+        }
     }
 }

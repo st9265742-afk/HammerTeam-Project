@@ -21,7 +21,7 @@ public class PlayerInteractionController : MonoBehaviour
 
         if (_inputManager.Interact && _currentInteractable != null)
         {
-            _currentInteractable.Interact();
+            _currentInteractable.Interact(gameObject);
         }
     }
 

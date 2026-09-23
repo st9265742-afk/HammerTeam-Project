@@ -107,6 +107,16 @@
                     "priority": 0
                 },
                 {
+                    "name": "AlternateFire",
+                    "type": "Button",
+                    "id": "7adb2b78-4558-494e-a2bf-b92b3fa915b1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                },
+                {
                     "name": "Reload",
                     "type": "Button",
                     "id": "f03e8d67-ea82-45f8-9b8e-00cf37dd21b9",
@@ -117,13 +127,23 @@
                     "priority": 0
                 },
                 {
-                    "name": "AlternateFire",
+                    "name": "NextWeapon",
                     "type": "Button",
-                    "id": "7adb2b78-4558-494e-a2bf-b92b3fa915b1",
+                    "id": "e47b8788-721f-412f-b08b-4ff9b79febdb",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false,
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "PreviousWeapon",
+                    "type": "Button",
+                    "id": "d87c25d2-45c3-40d6-afb6-47b8e5d8a1b6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
                     "priority": 0
                 }
             ],
@@ -576,6 +596,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "AlternateFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9115dd5e-419e-4655-bff2-a073d868f2ad",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e86166e0-2883-41bc-b3de-7e8ef1c2f80d",
+                    "path": "<Mouse>/scroll/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6bd975f-d383-49d2-baf6-06c7075cfd97",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PreviousWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e63b1816-1ed6-4b47-92b4-1b416f8a8b08",
+                    "path": "<Mouse>/scroll/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PreviousWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

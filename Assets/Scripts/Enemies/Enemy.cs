@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float speed = 3f;
     [SerializeField] private float damage = 10f;
 
+    [Header("Loot")]
+    [SerializeField] private LootTable lootTable;
+
     private float _health;
 
     public float Health => _health;
@@ -39,6 +42,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Debug.Log($"{gameObject.name} died.");
+        lootTable?.TrySpawnLoot(transform.position);
         Destroy(gameObject);
     }
 }
