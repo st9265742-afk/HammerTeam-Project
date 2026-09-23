@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float gravity = -9.8f;
 
     [Header("Jump")]
@@ -38,12 +39,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void ProcessMove(Vector2 input)
+    public void ProcessMove(Vector2 input, bool isSprinting)
     {
+        float currentSpeed = isSprinting ? sprintSpeed : speed;
+
         Vector3 moveDirection = Vector3.zero;
         moveDirection.x = input.x;
         moveDirection.z = input.y;
-        moveDirection = transform.TransformDirection(moveDirection) * speed;
+        moveDirection = transform.TransformDirection(moveDirection) * currentSpeed;
 
         _playerVelocity.y += gravity * Time.deltaTime;
 
