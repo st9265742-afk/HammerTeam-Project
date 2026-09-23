@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19095a3a4f7d9c48803823768754db2, type: 3}
+  m_Name: Revolver
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  displayName: Revolver
+  prefab: {fileID: 8478221771953371378, guid: a9b15b2ad7cdbcb47b886f91e3dc1847, type: 3}
+  ammoType: 0
+  magazineSize: 6
