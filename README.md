@@ -27,7 +27,7 @@ The project is currently in the prototype stage and may grow with new mechanics,
 
 ## Running the Project
 
-1. Install [Unity Hub](https://unity.com/download) and the Unity Editor version used by the project.
+1. Install [Unity Hub](https://unity.com/download) and the Unity Editor 6.6 used by the project.
 
 2. Clone the repository:
 
