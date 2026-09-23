@@ -6,15 +6,22 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float damage = 10f;
     [SerializeField] protected float fireRate = 0.2f;
 
-    [Header("Ammo")]
-    [SerializeField] protected int magazineSize = 6;
-    [SerializeField] protected int currentAmmo = 6;
-    [SerializeField] protected int reserveAmmo = 24;
-
+    private WeaponState _state;
+    private AmmoPool _ammoPool;
     private float _nextFireTime;
 
-    public int CurrentAmmo => currentAmmo;
-    public int ReserveAmmo => reserveAmmo;
+    protected Camera PlayerCamera { get; private set; }
+
+    public WeaponData Data => _state.Data;
+    public int CurrentAmmo => _state.MagazineAmmo;
+    public int ReserveAmmo => _ammoPool.Get(_state.Data.AmmoType);
+
+    public void Initialize(WeaponState state, AmmoPool ammoPool, Camera playerCamera)
+    {
+        _state = state;
+        _ammoPool = ammoPool;
+        PlayerCamera = playerCamera;
+    }
 
     public void TryFire()
     {
@@ -23,15 +30,27 @@ public abstract class Weapon : MonoBehaviour
             return;
         }
 
-        if (currentAmmo <= 0)
+        if (_state.MagazineAmmo <= 0)
         {
             return;
         }
 
         Fire();
 
-        currentAmmo--;
+        _state.MagazineAmmo--;
         _nextFireTime = Time.time + fireRate;
+    }
+
+    protected void ApplyHit(RaycastHit hit)
+    {
+        Debug.Log($"Hit: {hit.collider.name}");
+
+        Enemy enemy = hit.collider.GetComponent<Enemy>();
+
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
     }
 
     public virtual void AlternateFire()
@@ -40,17 +59,14 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void Reload()
     {
+        int missing = _state.Data.MagazineSize - _state.MagazineAmmo;
 
-        if (currentAmmo >= magazineSize || reserveAmmo <= 0)
+        if (missing <= 0)
         {
             return;
         }
 
-        int requiredAmmo = magazineSize - currentAmmo;
-        int ammoToReload = Mathf.Min(requiredAmmo, reserveAmmo);
-
-        currentAmmo += ammoToReload;
-        reserveAmmo -= ammoToReload;
+        _state.MagazineAmmo += _ammoPool.Take(_state.Data.AmmoType, missing);
     }
 
     protected abstract void Fire();

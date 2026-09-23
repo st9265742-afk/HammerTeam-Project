@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3102817100244302434}
   - component: {fileID: 828224281751226866}
   - component: {fileID: 5485405356428911191}
+  - component: {fileID: 4332513761218100161}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Untagged
@@ -112,3 +113,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4332513761218100161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494517153566322371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90ac5b2af0d6e847996260d99d498fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shotgun
+  damage: 10
+  fireRate: 0.8
+  range: 50
+  pellets: 6
+  spread: 5
