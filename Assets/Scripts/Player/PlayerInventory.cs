@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     private PlayerHealth _health;
+    private PlayerMovement _movement;
     private PlayerKeyCards _keyCards;
 
     public InventoryState State => GameSession.Inventory;
@@ -13,6 +14,7 @@ public class PlayerInventory : MonoBehaviour
     private void Awake()
     {
         _health = GetComponent<PlayerHealth>();
+        _movement = GetComponent<PlayerMovement>();
         _keyCards = GetComponent<PlayerKeyCards>();
     }
 
@@ -32,6 +34,8 @@ public class PlayerInventory : MonoBehaviour
     public void AddArmor(float amount) => _health.AddArmor(amount);
 
     public void Heal(float amount) => _health.Heal(amount);
+
+    public void ApplyAdrenaline(float multiplier, float duration) => _movement.ApplySpeedBoost(multiplier, duration);
 
     public void AddKeyCard(KeyCardType type) => _keyCards.Add(type);
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -31,8 +32,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _wallJumpVelocity;
     private float _wallJumpTimer;
     private int _wallJumpsUsed;
+    private float _boostMultiplier = 1f;
+    private float _boostTimer;
 
     private CharacterController _controller;
+
+    public event Action<bool> SpeedBoostChanged;
 
     private void Start()
     {
@@ -43,6 +48,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (_boostTimer > 0f)
+        {
+            _boostTimer -= Time.deltaTime;
+
+            if (_boostTimer <= 0f)
+            {
+                _boostTimer = 0f;
+                _boostMultiplier = 1f;
+                SpeedBoostChanged?.Invoke(false);
+            }
+        }
+
         _isGrounded = _controller.isGrounded;
 
         if (_isGrounded)
@@ -55,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ProcessMove(Vector2 input, bool isSprinting)
     {
-        float currentSpeed = _isCrouching ? crouchSpeed : (isSprinting ? sprintSpeed : speed);
+        float currentSpeed = (_isCrouching ? crouchSpeed : (isSprinting ? sprintSpeed : speed)) * _boostMultiplier;
 
         Vector3 moveDirection = Vector3.zero;
         moveDirection.x = input.x;
@@ -170,5 +187,13 @@ public class PlayerMovement : MonoBehaviour
 
         wallNormal = Vector3.zero;
         return false;
+    }
+
+    public void ApplySpeedBoost(float multiplier, float duration)
+    {
+        _boostMultiplier = multiplier;
+        _boostTimer = duration;
+
+        SpeedBoostChanged?.Invoke(true);
     }
 }
