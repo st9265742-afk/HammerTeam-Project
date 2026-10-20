@@ -7,6 +7,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sprintSpeed = 8f;
     [SerializeField] private float gravity = -9.8f;
 
+    [Header("Crouch")]
+    [SerializeField] private float crouchSpeed = 2.5f;
+    [SerializeField] private float crouchHeight = 1f;
+    [SerializeField] private float crouchTransitionSpeed = 8f;
+    [SerializeField] private LayerMask ceilingMask = ~0;
+
     [Header("Jump")]
     [SerializeField] private float jumpHeight = 3f;
 
@@ -18,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _isGrounded = false;
     private Vector3 _playerVelocity;
+    private bool _wantsCrouch;
+    private bool _isCrouching;
+    private float _standingHeight;
+    private float _standingCenterY;
     private Vector3 _wallJumpVelocity;
     private float _wallJumpTimer;
     private int _wallJumpsUsed;
@@ -27,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
+        _standingHeight = _controller.height;
+        _standingCenterY = _controller.center.y;
     }
 
     private void Update()
@@ -37,11 +49,13 @@ public class PlayerMovement : MonoBehaviour
         {
             _wallJumpsUsed = 0;
         }
+
+        UpdateCrouch();
     }
 
     public void ProcessMove(Vector2 input, bool isSprinting)
     {
-        float currentSpeed = isSprinting ? sprintSpeed : speed;
+        float currentSpeed = _isCrouching ? crouchSpeed : (isSprinting ? sprintSpeed : speed);
 
         Vector3 moveDirection = Vector3.zero;
         moveDirection.x = input.x;
@@ -68,8 +82,43 @@ public class PlayerMovement : MonoBehaviour
         _controller.Move(finalVelocity * Time.deltaTime);
     }
 
+    public void SetCrouch(bool crouch)
+    {
+        _wantsCrouch = crouch;
+    }
+
+    private void UpdateCrouch()
+    {
+        if (_wantsCrouch)
+        {
+            _isCrouching = true;
+        }
+        else if (_isCrouching && CanStandUp())
+        {
+            _isCrouching = false;
+        }
+
+        float targetHeight = _isCrouching ? crouchHeight : _standingHeight;
+        float newHeight = Mathf.MoveTowards(_controller.height, targetHeight, crouchTransitionSpeed * Time.deltaTime);
+        float delta = _standingHeight - newHeight;
+
+        _controller.height = newHeight;
+        _controller.center = new Vector3(_controller.center.x, _standingCenterY - delta / 2f, _controller.center.z);
+    }
+
+    private bool CanStandUp()
+    {
+        float radius = _controller.radius;
+        Vector3 start = transform.position + Vector3.up * (_controller.height - radius);
+        float distance = _standingHeight - _controller.height;
+
+        return !Physics.SphereCast(start, radius * 0.95f, Vector3.up, out _, distance, ceilingMask, QueryTriggerInteraction.Ignore);
+    }
+
     public void Jump()
     {
+        if (_isCrouching) return;
+
         if (_isGrounded)
         {
             _playerVelocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);

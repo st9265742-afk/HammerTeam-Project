@@ -45,6 +45,8 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
+        _movement.SetCrouch(_inputSystem.Player.Crouch.IsPressed());
+
         _weaponController.ProcessFire(_inputSystem.Player.Fire.IsPressed(), _inputSystem.Player.AlternateFire.IsPressed());
 
         if (_inputSystem.Player.Reload.WasPressedThisFrame())
