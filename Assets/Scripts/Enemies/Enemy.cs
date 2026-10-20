@@ -7,10 +7,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float speed = 3f;
     [SerializeField] private float damage = 10f;
 
+    [Header("Attack")]
+    [SerializeField] private float attackRange = 1.5f;
+    [SerializeField] private float attackCooldown = 1f;
+
     [Header("Loot")]
     [SerializeField] private LootTable lootTable;
 
     private float _health;
+    private PlayerHealth _player;
+    private float _nextAttackTime;
 
     public float Health => _health;
     public float MaxHealth => maxHealth;
@@ -20,6 +26,34 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _health = maxHealth;
+        _player = FindFirstObjectByType<PlayerHealth>();
+    }
+
+    private void Update()
+    {
+        if (_player == null || _player.Health <= 0)
+        {
+            return;
+        }
+
+        if (Time.time < _nextAttackTime)
+        {
+            return;
+        }
+
+        if (Vector3.Distance(transform.position, _player.transform.position) > attackRange)
+        {
+            return;
+        }
+
+        _nextAttackTime = Time.time + attackCooldown;
+        Attack(_player);
+    }
+
+    protected virtual void Attack(PlayerHealth target)
+    {
+        target.TakeDamage(damage);
+        Debug.Log($"{gameObject.name} hit player: HP {target.Health}, armor {target.Armor}");
     }
 
     public void TakeDamage(float damageAmount)
