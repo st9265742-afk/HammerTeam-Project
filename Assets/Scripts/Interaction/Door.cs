@@ -7,15 +7,17 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private Vector3 openOffset = new Vector3(0f, 3f, 0f);
     [SerializeField] private float openSpeed = 2f;
 
+    private PlayerKeyCards _keyCards;
     private Vector3 _openPosition;
     private bool _isOpen;
 
-    public string InteractionPrompt => $"Open door ({requiredCard} key card)";
-    public bool CanInteract => !_isOpen;
+    public string InteractionPrompt => "Open door";
+    public bool CanInteract => !_isOpen && _keyCards != null && _keyCards.Has(requiredCard);
 
     private void Awake()
     {
         _openPosition = panel.localPosition + openOffset;
+        _keyCards = FindAnyObjectByType<PlayerKeyCards>();
     }
 
     private void Update()
