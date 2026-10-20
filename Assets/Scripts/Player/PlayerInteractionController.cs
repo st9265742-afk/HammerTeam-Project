@@ -58,6 +58,11 @@ public class PlayerInteractionController : MonoBehaviour
             return null;
         }
 
-        return hit.collider.GetComponentInParent<IInteractable>();
+        IInteractable interactable =
+            hit.collider.GetComponentInParent<IInteractable>();
+
+        return interactable != null && interactable.CanInteract
+            ? interactable
+            : null;
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class Pickup : MonoBehaviour, IInteractable
 {
     public abstract string InteractionPrompt { get; }
+    public virtual bool CanInteract => true;
 
     public void Interact(GameObject interactor)
     {

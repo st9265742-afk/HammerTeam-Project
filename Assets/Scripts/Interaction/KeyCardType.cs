@@ -1,6 +1,6 @@
 public enum KeyCardType
 {
     Red,
-    Green,
+    Blue,
     Yellow
 }
