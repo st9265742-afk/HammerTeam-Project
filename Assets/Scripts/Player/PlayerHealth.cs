@@ -28,7 +28,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        _health = maxHealth;
+        _health = GameSession.Inventory.Health ?? maxHealth;
+        _armor = GameSession.Inventory.Armor;
     }
 
     private void Update()
@@ -82,5 +83,11 @@ public class PlayerHealth : MonoBehaviour
     {
         _armor = Mathf.Min(_armor + amount, maxArmor);
         Changed?.Invoke();
+    }
+
+    public void SaveToSession()
+    {
+        GameSession.Inventory.Health = _health;
+        GameSession.Inventory.Armor = _armor;
     }
 }

@@ -4,6 +4,8 @@ public class InventoryState
 {
     private readonly List<WeaponState> _weapons = new List<WeaponState>();
 
+    public float? Health { get; set; }
+    public float Armor { get; set; }
     public AmmoPool Ammo { get; } = new AmmoPool();
     public IReadOnlyList<WeaponState> Weapons => _weapons;
     public int CurrentWeaponIndex { get; set; }
