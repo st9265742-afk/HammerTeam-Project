@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _health = maxHealth;
-        _player = FindFirstObjectByType<PlayerHealth>();
+        _player = FindAnyObjectByType<PlayerHealth>();
     }
 
     private void Update()
