@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     private float _nextAttackTime;
     private bool _isAlerted;
     private Vector3 _lastKnownPosition;
+    protected LayerMask ObstacleMask => obstacleMask;
+    protected Vector3 PlayerCenter => _playerCollider.bounds.center;
 
     public float Health => _health;
     public float MaxHealth => maxHealth;
@@ -43,7 +45,7 @@ public class Enemy : MonoBehaviour
 
         _agent = GetComponent<NavMeshAgent>();
         _agent.speed = speed;
-        _agent.stoppingDistance = attackRange * 0.8f;
+        _agent.stoppingDistance = 0.5f;
     }
 
     private void Update()
@@ -69,7 +71,7 @@ public class Enemy : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, _player.transform.position);
 
-        if (canSeePlayer && distance <= attackRange)
+        if (canSeePlayer && distance <= attackRange && CanAttack(_player))
         {
             _agent.ResetPath();
             FacePlayer();
@@ -89,7 +91,7 @@ public class Enemy : MonoBehaviour
     private bool CanSeePlayer()
     {
         Vector3 eyes = transform.position + Vector3.up * eyeHeight;
-        Vector3 direction = _playerCollider.bounds.center - eyes;
+        Vector3 direction = PlayerCenter - eyes;
         float distance = direction.magnitude;
 
         if (distance > viewDistance)
@@ -104,6 +106,8 @@ public class Enemy : MonoBehaviour
 
         return !Physics.Raycast(eyes, direction.normalized, distance, obstacleMask);
     }
+
+    protected virtual bool CanAttack(PlayerHealth target) => true;
 
     private void FacePlayer()
     {

@@ -6,6 +6,7 @@
 [Bb]uilds/
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
+_[Rr]ecovery/
 
 # Memory captures
 [Mm]emoryCaptures/
@@ -38,3 +39,4 @@ sysinfo.txt
 Thumbs.db
 
 .github/workflows
+.devnotes
