@@ -65,6 +65,10 @@ PrefabInstance:
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3649689463126229471, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
+      propertyPath: lootTable
+      value: 
+      objectReference: {fileID: 11400000, guid: 14b8296d502ba434e990c014069ff85b, type: 2}
+    - target: {fileID: 3649689463126229471, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
       propertyPath: maxHealth
       value: 200
       objectReference: {fileID: 0}

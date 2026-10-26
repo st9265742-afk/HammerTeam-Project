@@ -292,7 +292,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  lootTable: {fileID: 11400000, guid: 19c9aa73917c7e24a943bcec1cd56b28, type: 2}
+  lootTable: {fileID: 11400000, guid: c55eafe72fdb565408c6c622c27757b6, type: 2}
 --- !u!114 &3009310872912278167
 MonoBehaviour:
   m_ObjectHideFlags: 0
