@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3817341933674668614}
   - component: {fileID: 7993187980655504220}
   - component: {fileID: 1874844172273101379}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3096972245494076633}
   - component: {fileID: 2356745076051244892}
-  m_Layer: 0
+  - component: {fileID: 1768438252888361733}
+  m_Layer: 6
   m_Name: YellowDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,3 +162,23 @@ MonoBehaviour:
   panel: {fileID: 1603785862151391933}
   openOffset: {x: 0, y: 3, z: 0}
   openSpeed: 2
+--- !u!114 &1768438252888361733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784713682338179969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshModifier
+  m_SerializedVersion: 0
+  m_OverrideArea: 0
+  m_Area: 0
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffffi

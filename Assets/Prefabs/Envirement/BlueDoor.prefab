@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7344360113916843694}
   - component: {fileID: 2949065421904294842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BlueDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 1967915318988195587}
   - component: {fileID: 7458950395316301236}
   - component: {fileID: 7367245744879209059}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
