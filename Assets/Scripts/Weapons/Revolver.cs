@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Revolver : Weapon
 {
+    [Header("Revolver Settings")]
     [SerializeField] private float range = 100f;
 
     protected override void Fire()

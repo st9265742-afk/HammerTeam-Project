@@ -126,9 +126,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Revolver
   damage: 10
-  fireRate: 0.2
-  magazineSize: 6
-  currentAmmo: 6
-  reserveAmmo: 36
-  playerCamera: {fileID: 0}
+  fireRate: 0.3
   range: 100

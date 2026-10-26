@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [Header("Weapon")]
+    [Header("Weapon Settings")]
     [SerializeField] protected float damage = 10f;
     [SerializeField] protected float fireRate = 0.2f;
 
@@ -12,9 +12,9 @@ public abstract class Weapon : MonoBehaviour
 
     protected Camera PlayerCamera { get; private set; }
 
-    public WeaponData Data => _state.Data;
-    public int CurrentAmmo => _state.MagazineAmmo;
-    public int ReserveAmmo => _ammoPool.Get(_state.Data.AmmoType);
+    public WeaponData Data => _state?.Data;
+    public int CurrentAmmo => _state != null ? _state.MagazineAmmo : 0;
+    public int ReserveAmmo => (_state != null && _ammoPool != null) ? _ammoPool.Get(_state.Data.AmmoType) : 0;
 
     public void Initialize(WeaponState state, AmmoPool ammoPool, Camera playerCamera)
     {
@@ -30,7 +30,7 @@ public abstract class Weapon : MonoBehaviour
             return;
         }
 
-        if (_state.MagazineAmmo <= 0)
+        if (_state == null || _state.MagazineAmmo <= 0)
         {
             return;
         }
@@ -41,7 +41,7 @@ public abstract class Weapon : MonoBehaviour
         _nextFireTime = Time.time + fireRate;
     }
 
-    protected void ApplyHit(RaycastHit hit)
+    protected virtual void ApplyHit(RaycastHit hit)
     {
         Debug.Log($"Hit: {hit.collider.name}");
 
@@ -59,6 +59,11 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void Reload()
     {
+        if (_state == null)
+        {
+            return;
+        }
+
         int missing = _state.Data.MagazineSize - _state.MagazineAmmo;
 
         if (missing <= 0)

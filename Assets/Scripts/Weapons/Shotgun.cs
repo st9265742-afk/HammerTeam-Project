@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Shotgun : Weapon
 {
+    [Header("Shotgun Settings")]
     [SerializeField] private float range = 50f;
     [SerializeField] private int pellets = 6;
     [SerializeField] private float spread = 5f;
@@ -24,7 +25,6 @@ public class Shotgun : Weapon
         Vector3 direction = PlayerCamera.transform.forward;
 
         direction += PlayerCamera.transform.right * Random.Range(-spread, spread) / 100f;
-
         direction += PlayerCamera.transform.up * Random.Range(-spread, spread) / 100f;
 
         return direction.normalized;

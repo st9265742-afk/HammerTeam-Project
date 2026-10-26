@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   displayName: Revolver
   prefab: {fileID: 8478221771953371378, guid: a9b15b2ad7cdbcb47b886f91e3dc1847, type: 3}
-  ammoType: 0
+  ammoType: 1
   magazineSize: 6
