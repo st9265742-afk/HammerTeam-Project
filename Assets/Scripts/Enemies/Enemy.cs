@@ -1,17 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float speed = 3f;
-    [SerializeField] private float damage = 10f;
-
-    [Header("Attack")]
-    [SerializeField] private float attackRange = 1.5f;
-    [SerializeField] private float attackCooldown = 1f;
 
     [Header("Vision")]
     [SerializeField] private float viewDistance = 15f;
@@ -26,39 +20,45 @@ public class Enemy : MonoBehaviour
     private PlayerHealth _player;
     private Collider _playerCollider;
     private NavMeshAgent _agent;
-    private float _nextAttackTime;
+    private EnemyAttack _attack;
     private bool _isAlerted;
     private Vector3 _lastKnownPosition;
-    protected LayerMask ObstacleMask => obstacleMask;
-    protected Vector3 PlayerCenter => _playerCollider.bounds.center;
 
     public float Health => _health;
     public float MaxHealth => maxHealth;
     public float Speed => speed;
-    public float Damage => damage;
+    public bool SeesPlayer { get; private set; }
+    public Vector3 PlayerCenter => _playerCollider.bounds.center;
+
+    // Нерухомі вороги (турель) не мають NavMeshAgent
+    private bool CanMove => _agent != null;
 
     private void Awake()
     {
         _health = maxHealth;
         _player = FindAnyObjectByType<PlayerHealth>();
         _playerCollider = _player.GetComponent<Collider>();
-
+        _attack = GetComponent<EnemyAttack>();
         _agent = GetComponent<NavMeshAgent>();
-        _agent.speed = speed;
-        _agent.stoppingDistance = 0.5f;
+
+        if (CanMove)
+        {
+            _agent.speed = speed;
+            _agent.stoppingDistance = 0.5f;
+        }
     }
 
     private void Update()
     {
         if (_player == null || _player.Health <= 0)
         {
-            _agent.ResetPath();
+            StopMoving();
             return;
         }
 
-        bool canSeePlayer = CanSeePlayer();
+        SeesPlayer = CanSeePlayer();
 
-        if (canSeePlayer)
+        if (SeesPlayer)
         {
             _isAlerted = true;
             _lastKnownPosition = _player.transform.position;
@@ -71,17 +71,17 @@ public class Enemy : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, _player.transform.position);
 
-        if (canSeePlayer && distance <= attackRange && CanAttack(_player))
+        if (SeesPlayer && distance <= _attack.Range && _attack.CanAttack(_player))
         {
-            _agent.ResetPath();
+            StopMoving();
             FacePlayer();
-            TryAttack();
+            _attack.TryAttack(_player);
         }
-        else
+        else if (CanMove)
         {
             _agent.SetDestination(_lastKnownPosition);
 
-            if (!canSeePlayer && !_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
+            if (!SeesPlayer && !_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
             {
                 _isAlerted = false;
             }
@@ -107,10 +107,21 @@ public class Enemy : MonoBehaviour
         return !Physics.Raycast(eyes, direction.normalized, distance, obstacleMask);
     }
 
-    protected virtual bool CanAttack(PlayerHealth target) => true;
+    private void StopMoving()
+    {
+        if (CanMove)
+        {
+            _agent.ResetPath();
+        }
+    }
 
     private void FacePlayer()
     {
+        if (!CanMove)
+        {
+            return;
+        }
+
         Vector3 flat = _player.transform.position - transform.position;
         flat.y = 0f;
 
@@ -121,22 +132,6 @@ public class Enemy : MonoBehaviour
 
         Quaternion target = Quaternion.LookRotation(flat);
         transform.rotation = Quaternion.Slerp(transform.rotation, target, 10f * Time.deltaTime);
-    }
-
-    private void TryAttack()
-    {
-        if (Time.time < _nextAttackTime)
-        {
-            return;
-        }
-
-        _nextAttackTime = Time.time + attackCooldown;
-        Attack(_player);
-    }
-
-    protected virtual void Attack(PlayerHealth target)
-    {
-        target.TakeDamage(damage);
     }
 
     public virtual void TakeDamage(float damageAmount)

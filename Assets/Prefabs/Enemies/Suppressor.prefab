@@ -24,6 +24,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.7
       objectReference: {fileID: 0}
+    - target: {fileID: 3226366675299390549, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226366675299390549, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
+      propertyPath: spread
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226366675299390549, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
+      propertyPath: cooldown
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226366675299390549, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
+      propertyPath: shotDamage
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3226366675299390549, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
+      propertyPath: meleeDamage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3649689463126229471, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
       propertyPath: speed
       value: 1.5
@@ -41,8 +61,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3649689463126229471, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
+      propertyPath: eyeHeight
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649689463126229471, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
       propertyPath: maxHealth
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649689463126229471, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
+      propertyPath: viewAngle
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 3649689463126229471, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
       propertyPath: meleeRange
@@ -55,6 +83,10 @@ PrefabInstance:
     - target: {fileID: 3649689463126229471, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
       propertyPath: attackRange
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649689463126229471, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
+      propertyPath: viewDistance
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3649689463126229471, guid: 400eac5085d7b1e4293100f8b97f1e4f, type: 3}
       propertyPath: attackCooldown

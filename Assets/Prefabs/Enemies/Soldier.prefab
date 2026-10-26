@@ -43,8 +43,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4747639806304631424}
   - component: {fileID: 2003413260817726022}
-  - component: {fileID: 3649689463126229471}
   - component: {fileID: 8229997559732213311}
+  - component: {fileID: 3649689463126229471}
+  - component: {fileID: 3226366675299390549}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -89,38 +90,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3649689463126229471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3767350677964326517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37c0cc61cd528a94ba6da3daa1bdea37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Soldier
-  maxHealth: 60
-  speed: 2.5
-  damage: 15
-  attackRange: 10
-  attackCooldown: 1.5
-  viewDistance: 20
-  viewAngle: 120
-  eyeHeight: 1.6
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 64
-  lootTable: {fileID: 11400000, guid: 19c9aa73917c7e24a943bcec1cd56b28, type: 2}
-  muzzle: {fileID: 7527235317128719040}
-  shotMask:
-    serializedVersion: 2
-    m_Bits: 192
-  shotDamage: 4
-  pellets: 6
-  spread: 0.12
-  meleeRange: 2
 --- !u!195 &8229997559732213311
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -143,6 +112,53 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3649689463126229471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767350677964326517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ad155c392223748ac7cf6b84d5272c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Soldier
+  maxHealth: 100
+  speed: 3
+  viewDistance: 15
+  viewAngle: 120
+  eyeHeight: 1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
+  lootTable: {fileID: 11400000, guid: 19c9aa73917c7e24a943bcec1cd56b28, type: 2}
+--- !u!114 &3226366675299390549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767350677964326517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f9a6bd263177d428b4fe2e47ad9f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShootAttack
+  range: 10
+  cooldown: 1.2
+  muzzle: {fileID: 7527235317128719040}
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
+  shotMask:
+    serializedVersion: 2
+    m_Bits: 192
+  shotDamage: 8
+  pellets: 1
+  spread: 0.05
+  meleeRange: 2
+  meleeDamage: 10
 --- !u!1 &4428717263377609624
 GameObject:
   m_ObjectHideFlags: 0

@@ -133,8 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4747639806304631424}
   - component: {fileID: 2003413260817726022}
-  - component: {fileID: 6539154080336040076}
   - component: {fileID: 8229997559732213311}
+  - component: {fileID: 6539154080336040076}
+  - component: {fileID: 8639430436581656125}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -179,30 +180,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6539154080336040076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3767350677964326517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4d4ac6207c3bbe4dbab55df4e4982d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dog
-  maxHealth: 30
-  speed: 6.5
-  damage: 8
-  attackRange: 1.5
-  attackCooldown: 0.7
-  viewDistance: 20
-  viewAngle: 150
-  eyeHeight: 0.5
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 64
-  lootTable: {fileID: 11400000, guid: d3117f179934f894a856461542263b2c, type: 2}
 --- !u!195 &8229997559732213311
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -225,6 +202,42 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6539154080336040076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767350677964326517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ad155c392223748ac7cf6b84d5272c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dog
+  maxHealth: 30
+  speed: 6.5
+  viewDistance: 20
+  viewAngle: 150
+  eyeHeight: 0.5
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
+  lootTable: {fileID: 11400000, guid: d3117f179934f894a856461542263b2c, type: 2}
+--- !u!114 &8639430436581656125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767350677964326517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56aca2be0abea94abc5a8545f5da9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeAttack
+  range: 1.5
+  cooldown: 1
+  damage: 10
 --- !u!1 &8559506663984827774
 GameObject:
   m_ObjectHideFlags: 0
