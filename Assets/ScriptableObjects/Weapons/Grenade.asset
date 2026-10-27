@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   displayName: Grenade
   prefab: {fileID: 3386620266515844898, guid: b5ace13a847d8f242b0269d2c7f8bc2c, type: 3}
-  ammoType: 4
+  ammoType: 3
   magazineSize: 1

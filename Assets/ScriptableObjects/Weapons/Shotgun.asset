@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   displayName: Shotgun
   prefab: {fileID: 4332513761218100161, guid: b15384ce4139d1a4ba63978c56c36d51, type: 3}
-  ammoType: 2
+  ammoType: 1
   magazineSize: 8

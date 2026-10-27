@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   displayName: SMG
   prefab: {fileID: 1865920036979740007, guid: 0a9acdfa59199a74092cefd80aa4e57d, type: 3}
-  ammoType: 3
+  ammoType: 2
   magazineSize: 30
