@@ -5,6 +5,7 @@ public abstract class Weapon : MonoBehaviour
     [Header("Weapon Settings")]
     [SerializeField] protected float damage = 10f;
     [SerializeField] protected float fireRate = 0.2f;
+    [SerializeField] private bool autoReload;
 
     private WeaponState _state;
     private AmmoPool _ammoPool;
@@ -16,6 +17,8 @@ public abstract class Weapon : MonoBehaviour
     public int CurrentAmmo => _state != null ? _state.MagazineAmmo : 0;
     public int ReserveAmmo => (_state != null && _ammoPool != null) ? _ammoPool.Get(_state.Data.AmmoType) : 0;
 
+    protected virtual bool HasAlternateFire => false;
+
     public void Initialize(WeaponState state, AmmoPool ammoPool, Camera playerCamera)
     {
         _state = state;
@@ -25,20 +28,40 @@ public abstract class Weapon : MonoBehaviour
 
     public void TryFire()
     {
-        if (Time.time < _nextFireTime)
-        {
-            return;
-        }
-
-        if (_state == null || _state.MagazineAmmo <= 0)
+        if (!CanFire())
         {
             return;
         }
 
         Fire();
+        SpendShot();
+    }
 
+    public void TryAlternateFire()
+    {
+        if (!HasAlternateFire || !CanFire())
+        {
+            return;
+        }
+
+        AlternateFire();
+        SpendShot();
+    }
+
+    private bool CanFire()
+    {
+        return Time.time >= _nextFireTime && _state != null && _state.MagazineAmmo > 0;
+    }
+
+    private void SpendShot()
+    {
         _state.MagazineAmmo--;
         _nextFireTime = Time.time + fireRate;
+
+        if (autoReload && _state.MagazineAmmo <= 0)
+        {
+            Reload();
+        }
     }
 
     protected virtual void ApplyHit(RaycastHit hit)
@@ -63,7 +86,7 @@ public abstract class Weapon : MonoBehaviour
         return direction.normalized;
     }
 
-    public virtual void AlternateFire()
+    protected virtual void AlternateFire()
     {
     }
 

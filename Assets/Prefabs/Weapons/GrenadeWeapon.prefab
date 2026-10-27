@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GrenadeWeapon
   damage: 10
   fireRate: 1
+  autoReload: 1
   grenadePrefab: {fileID: 1197743394352218108, guid: da73978e3cabe70428ad5bce478b0f10, type: 3}
   throwPoint: {fileID: 0}
   throwForce: 15
+  weakThrowForce: 7

@@ -75,7 +75,7 @@ public class PlayerWeaponController : MonoBehaviour
 
         if (alternateFire)
         {
-            _currentWeapon.AlternateFire();
+            _currentWeapon.TryAlternateFire();
         }
     }
 
