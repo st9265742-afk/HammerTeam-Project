@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2691290682650223797}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +31,96 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3454626466314868255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1089145712556355081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8750732826835517083}
+  - component: {fileID: 7456401610553516226}
+  - component: {fileID: 3204076293124168922}
+  m_Layer: 7
+  m_Name: Capsule
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8750732826835517083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089145712556355081}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7880472689737959271}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &7456401610553516226
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089145712556355081}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3204076293124168922
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089145712556355081}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1170690971087326194
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1964646103595308774}
   - component: {fileID: 3708919213349061273}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: PlayerState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +187,7 @@ GameObject:
   - component: {fileID: 426660301412535277}
   - component: {fileID: 8284900200522269861}
   - component: {fileID: 1219139689798015749}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: PlayerHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +312,7 @@ GameObject:
   - component: {fileID: 5484390297231970103}
   - component: {fileID: 1110259243592702648}
   - component: {fileID: 7053577824611916116}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +432,7 @@ GameObject:
   - component: {fileID: 1228949167448485654}
   - component: {fileID: 488672960478953591}
   - component: {fileID: 978995470816671306}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: AmmoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +511,7 @@ GameObject:
   - component: {fileID: 2862353845743607756}
   - component: {fileID: 6656441823178217890}
   - component: {fileID: 5601429032993852227}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: ArmorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +590,7 @@ GameObject:
   - component: {fileID: 305895215295712240}
   - component: {fileID: 5155835959172578293}
   - component: {fileID: 33444847323739356}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: PromptText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +669,7 @@ GameObject:
   - component: {fileID: 4703105069575122781}
   - component: {fileID: 8270711637605249506}
   - component: {fileID: 7551574277016217928}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +744,7 @@ GameObject:
   - component: {fileID: 8101106024553366562}
   - component: {fileID: 2743608488781579253}
   - component: {fileID: 8620261443200675358}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -733,7 +823,7 @@ GameObject:
   - component: {fileID: 8123391660624283534}
   - component: {fileID: 1462361782344789099}
   - component: {fileID: 1821083220686074075}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: YouDiedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +903,7 @@ GameObject:
   - component: {fileID: 6715478494480292254}
   - component: {fileID: 7254404299894143118}
   - component: {fileID: 3809809262514315130}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: DeathScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +994,7 @@ GameObject:
   - component: {fileID: 7670170427745735936}
   - component: {fileID: 381371708490687892}
   - component: {fileID: 4518947389975806454}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1041,7 +1131,7 @@ GameObject:
   - component: {fileID: 4306710042208802532}
   - component: {fileID: 958240861377192429}
   - component: {fileID: 1761474626278352779}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: KeyCardsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,8 +1208,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5627873505903615325}
-  - component: {fileID: 2288422468627296323}
-  - component: {fileID: 5602900259398758793}
   - component: {fileID: 3946833619669195191}
   - component: {fileID: 6450329905800530637}
   - component: {fileID: 5552285879843505357}
@@ -1129,7 +1217,7 @@ GameObject:
   - component: {fileID: 904187074226234454}
   - component: {fileID: 8902057764809308912}
   - component: {fileID: 6278011305623062308}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1149,67 +1237,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7880472689737959271}
   - {fileID: 3454626466314868255}
   - {fileID: 6216996288491011533}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2288422468627296323
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6427149579911179610}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &5602900259398758793
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6427149579911179610}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!143 &3946833619669195191
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1286,7 +1318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLook
   camera: {fileID: 7670170427745735936}
-  xSensitivity: 30
+  xSensitivity: 150
   ySensitivity: 30
 --- !u!114 &5658978409521267921
 MonoBehaviour:
@@ -1370,7 +1402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8356311637381263675}
   - component: {fileID: 1825202760358075448}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: InteractionPrompt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1410,6 +1442,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionPrompt
   promptText: {fileID: 33444847323739356}
+--- !u!1 &7505293769541435055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7880472689737959271}
+  m_Layer: 7
+  m_Name: Model
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7880472689737959271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7505293769541435055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8750732826835517083}
+  m_Father: {fileID: 5627873505903615325}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7735854061521632071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,7 +1484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5991660261210751379}
   - component: {fileID: 2094995524129272818}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: AdrenalinePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1470,7 +1534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3204172807791468425}
   - component: {fileID: 9050655778906375253}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: WeaponUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1523,7 +1587,7 @@ GameObject:
   - component: {fileID: 8502189500590736651}
   - component: {fileID: 6212435051085743850}
   - component: {fileID: 72719857597004645}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1601,7 +1665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7771418074372435107}
   - component: {fileID: 176099648076734938}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: KeyCardsHud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1653,7 +1717,7 @@ GameObject:
   - component: {fileID: 5332991899975708528}
   - component: {fileID: 5348173735209625430}
   - component: {fileID: 8817284626619815026}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

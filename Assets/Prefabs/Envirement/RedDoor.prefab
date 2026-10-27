@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1959435756141040915}
   - component: {fileID: 1008862357842814439}
   - component: {fileID: 3735879963923061933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3855660589463913413}
   - component: {fileID: 3535806224728569587}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RedDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
