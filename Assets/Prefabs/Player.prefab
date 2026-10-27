@@ -1217,6 +1217,7 @@ GameObject:
   - component: {fileID: 904187074226234454}
   - component: {fileID: 8902057764809308912}
   - component: {fileID: 6278011305623062308}
+  - component: {fileID: 3058895853473148039}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1392,6 +1393,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f863112fc3f548408de743b846ec4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerKeyCards
+--- !u!114 &3058895853473148039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6427149579911179610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 731d64752e6470c4894b53d651a07f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerKick
+  playerCamera: {fileID: 7670170427745735936}
+  damage: 15
+  range: 2
+  cooldown: 0.6
 --- !u!1 &6655163356030516299
 GameObject:
   m_ObjectHideFlags: 0

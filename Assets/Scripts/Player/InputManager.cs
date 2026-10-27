@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     private PlayerMovement _movement;
     private PlayerLook _look;
     private PlayerWeaponController _weaponController;
+    private PlayerKick _kick;
 
     private bool _gamepadSprintToggled;
 
@@ -20,6 +21,7 @@ public class InputManager : MonoBehaviour
         _movement = GetComponent<PlayerMovement>();
         _look = GetComponent<PlayerLook>();
         _weaponController = GetComponent<PlayerWeaponController>();
+        _kick = GetComponent<PlayerKick>();
 
         _inputSystem.Player.Jump.performed += ctx => _movement.Jump();
         _inputSystem.Player.NextWeapon.performed += ctx => _weaponController.SwitchWeapon(1);
@@ -52,6 +54,11 @@ public class InputManager : MonoBehaviour
         if (_inputSystem.Player.Reload.WasPressedThisFrame())
         {
             _weaponController.Reload();
+        }
+
+        if (_inputSystem.Player.Kick.WasPressedThisFrame())
+        {
+            _kick.TryKick();
         }
     }
 
