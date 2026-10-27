@@ -45,12 +45,22 @@ public abstract class Weapon : MonoBehaviour
     {
         Debug.Log($"Hit: {hit.collider.name}");
 
-        Enemy enemy = hit.collider.GetComponent<Enemy>();
+        Enemy enemy = hit.collider.GetComponentInParent<Enemy>();
 
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
         }
+    }
+
+    protected Vector3 GetSpreadDirection(float spread)
+    {
+        Vector3 direction = PlayerCamera.transform.forward;
+
+        direction += PlayerCamera.transform.right * Random.Range(-spread, spread) / 100f;
+        direction += PlayerCamera.transform.up * Random.Range(-spread, spread) / 100f;
+
+        return direction.normalized;
     }
 
     public virtual void AlternateFire()

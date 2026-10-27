@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GrenadeProjectile : MonoBehaviour
@@ -32,11 +33,13 @@ public class GrenadeProjectile : MonoBehaviour
         }
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        var damagedEnemies = new HashSet<Enemy>();
 
         foreach (Collider col in colliders)
         {
-            Enemy enemy = col.GetComponent<Enemy>();
-            if (enemy != null)
+            Enemy enemy = col.GetComponentInParent<Enemy>();
+
+            if (enemy != null && damagedEnemies.Add(enemy))
             {
                 enemy.TakeDamage(damage);
             }

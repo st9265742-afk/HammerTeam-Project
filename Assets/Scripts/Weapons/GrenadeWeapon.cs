@@ -6,10 +6,16 @@ public class GrenadeWeapon : Weapon
     [SerializeField] private Transform throwPoint;
     [SerializeField] private float throwForce = 15f;
 
+    private void Awake()
+    {
+        if (grenadePrefab == null)
+        {
+            Debug.LogError($"{name}: grenadePrefab is not assigned", this);
+        }
+    }
+
     protected override void Fire()
     {
-        if (grenadePrefab == null) return;
-
         Vector3 spawnPosition = throwPoint != null
             ? throwPoint.position
             : PlayerCamera.transform.position + PlayerCamera.transform.forward * 0.5f;
