@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: SuppressorLoot
   m_EditorClassIdentifier: Assembly-CSharp::LootTable
   entries:
-  - pickupPrefab: {fileID: 5391370836406405217, guid: 5cb61ccfa6228024a9af33b6b00af199, type: 3}
+  - pickupPrefab: {fileID: 3065188053560667896, guid: 29777fc7bc257af4094966ddb6e5bb03, type: 3}
     weight: 20
-  - pickupPrefab: {fileID: 5391370836406405217, guid: 953dcb5bf25db054caef2e3f14ed119d, type: 3}
+  - pickupPrefab: {fileID: 8616043246788613604, guid: 7d4c43c1e2b7dcb4cbb65a0409c52d87, type: 3}
     weight: 20
-  - pickupPrefab: {fileID: 7490321363081021117, guid: 6410f76e89afe20469a8bc97fe8e5c50, type: 3}
+  - pickupPrefab: {fileID: 2413075983559017531, guid: aa4fe69e604857e4b96dd41654efb517, type: 3}
     weight: 20
-  - pickupPrefab: {fileID: 1413486103353734208, guid: d5c9002ee2923214596eaf93fd909dc4, type: 3}
+  - pickupPrefab: {fileID: 3984579642134839435, guid: d5c9002ee2923214596eaf93fd909dc4, type: 3}
     weight: 10
-  - pickupPrefab: {fileID: 1169194383056333269, guid: f8b560b4349c59549ad54da5f0571452, type: 3}
+  - pickupPrefab: {fileID: 8688091545165124556, guid: ce13341076db2054d80ff613b5299e9c, type: 3}
     weight: 10
   nothingWeight: 30

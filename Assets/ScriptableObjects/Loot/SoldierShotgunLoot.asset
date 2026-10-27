@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SoldierShotgunLoot
   m_EditorClassIdentifier: Assembly-CSharp::LootTable
   entries:
-  - pickupPrefab: {fileID: 5519561790989564671, guid: a41b43afc7450514d8ef01d5ef07d212, type: 3}
+  - pickupPrefab: {fileID: 3356323480905646556, guid: 2e738a3ee97b0a34cac21a745c17a3f8, type: 3}
     weight: 30
-  - pickupPrefab: {fileID: 5281367775299183162, guid: 36ab03426a09c414f989b5fe163a13f4, type: 3}
+  - pickupPrefab: {fileID: 8917071631920558123, guid: 1d37499e6af8b92428798a36af656be7, type: 3}
     weight: 15
-  - pickupPrefab: {fileID: 1413486103353734208, guid: d5c9002ee2923214596eaf93fd909dc4, type: 3}
+  - pickupPrefab: {fileID: 3984579642134839435, guid: d5c9002ee2923214596eaf93fd909dc4, type: 3}
     weight: 5
   nothingWeight: 50

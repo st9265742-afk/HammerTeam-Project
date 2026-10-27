@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DogLoot
   m_EditorClassIdentifier: Assembly-CSharp::LootTable
   entries:
-  - pickupPrefab: {fileID: 5281367775299183162, guid: 36ab03426a09c414f989b5fe163a13f4, type: 3}
+  - pickupPrefab: {fileID: 8917071631920558123, guid: 1d37499e6af8b92428798a36af656be7, type: 3}
     weight: 20
-  - pickupPrefab: {fileID: 5391370836406405217, guid: 5cb61ccfa6228024a9af33b6b00af199, type: 3}
+  - pickupPrefab: {fileID: 3065188053560667896, guid: 29777fc7bc257af4094966ddb6e5bb03, type: 3}
     weight: 10
   nothingWeight: 70

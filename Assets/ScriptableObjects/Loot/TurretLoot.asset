@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: TurretLoot
   m_EditorClassIdentifier: Assembly-CSharp::LootTable
   entries:
-  - pickupPrefab: {fileID: 5391370836406405217, guid: 5cb61ccfa6228024a9af33b6b00af199, type: 3}
+  - pickupPrefab: {fileID: 3065188053560667896, guid: 29777fc7bc257af4094966ddb6e5bb03, type: 3}
     weight: 20
-  - pickupPrefab: {fileID: 5391370836406405217, guid: 953dcb5bf25db054caef2e3f14ed119d, type: 3}
+  - pickupPrefab: {fileID: 8616043246788613604, guid: 7d4c43c1e2b7dcb4cbb65a0409c52d87, type: 3}
     weight: 15
-  - pickupPrefab: {fileID: 1413486103353734208, guid: d5c9002ee2923214596eaf93fd909dc4, type: 3}
+  - pickupPrefab: {fileID: 3984579642134839435, guid: d5c9002ee2923214596eaf93fd909dc4, type: 3}
     weight: 5
   nothingWeight: 60
