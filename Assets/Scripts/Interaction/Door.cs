@@ -1,54 +1,46 @@
 using UnityEngine;
 
-public class Door : MonoBehaviour, IInteractable
+public class Door : MonoBehaviour
 {
-    [SerializeField] private KeyCardType requiredCard;
     [SerializeField] private Transform panel;
     [SerializeField] private Vector3 openOffset = new Vector3(0f, 3f, 0f);
     [SerializeField] private float openSpeed = 2f;
+    [SerializeField] private bool canClose = true;
 
-    private PlayerKeyCards _keyCards;
+    private Vector3 _closedPosition;
     private Vector3 _openPosition;
-    private bool _isOpen;
 
-    public string InteractionPrompt => "Open door";
-    public bool CanInteract => !_isOpen && _keyCards != null && _keyCards.Has(requiredCard);
+    public bool IsOpen { get; private set; }
 
     private void Awake()
     {
-        _openPosition = panel.localPosition + openOffset;
-        _keyCards = FindAnyObjectByType<PlayerKeyCards>();
+        _closedPosition = panel.localPosition;
+        _openPosition = _closedPosition + openOffset;
     }
 
     private void Update()
     {
-        if (!_isOpen)
-        {
-            return;
-        }
+        Vector3 targetPosition = IsOpen ? _openPosition : _closedPosition;
 
         panel.localPosition = Vector3.MoveTowards(
             panel.localPosition,
-            _openPosition,
+            targetPosition,
             openSpeed * Time.deltaTime
         );
     }
 
-    public void Interact(GameObject interactor)
+    public void Open()
     {
-        if (_isOpen)
+        IsOpen = true;
+    }
+
+    public void Close()
+    {
+        if (!canClose)
         {
             return;
         }
 
-        PlayerKeyCards keyCards = interactor.GetComponentInParent<PlayerKeyCards>();
-
-        if (keyCards == null || !keyCards.Has(requiredCard))
-        {
-            Debug.Log($"Need {requiredCard} key card");
-            return;
-        }
-
-        _isOpen = true;
+        IsOpen = false;
     }
 }
