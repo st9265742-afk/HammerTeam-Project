@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider))]
 public class LevelExit : MonoBehaviour
 {
     [SerializeField, SceneName] private string nextScene;
+    [SerializeField] private PlayerHud hud;
 
     private void Awake()
     {
@@ -20,7 +20,6 @@ public class LevelExit : MonoBehaviour
             return;
         }
 
-        health.SaveToSession();
-        SceneManager.LoadScene(nextScene);
+        health.GetComponentInChildren<PlayerHud>(true).ShowLevelComplete(nextScene);
     }
 }

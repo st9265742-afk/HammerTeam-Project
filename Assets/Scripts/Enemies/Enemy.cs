@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -29,8 +30,8 @@ public class Enemy : MonoBehaviour
     public float Speed => speed;
     public bool SeesPlayer { get; private set; }
     public Vector3 PlayerCenter => _playerCollider.bounds.center;
+    public static event Action Killed;
 
-    // Нерухомі вороги (турель) не мають NavMeshAgent
     private bool CanMove => _agent != null;
 
     private void Awake()
@@ -155,6 +156,7 @@ public class Enemy : MonoBehaviour
     protected virtual void Die()
     {
         lootTable?.TrySpawnLoot(transform.position);
+        Killed?.Invoke();
         Destroy(gameObject);
     }
 

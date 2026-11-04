@@ -7,10 +7,12 @@ public class PlayerHud : MonoBehaviour
     [SerializeField] private InputManager inputManager;
     [SerializeField] private DeathScreen deathScreen;
     [SerializeField] private AdrenalinePanel adrenalinePanel;
+    [SerializeField] private LevelCompleteScreen levelCompleteScreen;
 
     private void Awake()
     {
         deathScreen.gameObject.SetActive(false);
+        levelCompleteScreen.gameObject.SetActive(false);
         adrenalinePanel.SetVisible(false);
     }
 
@@ -33,16 +35,23 @@ public class PlayerHud : MonoBehaviour
 
     private void OnPlayerDied()
     {
+        ShowOnly(deathScreen.transform);
+        deathScreen.Show();
+    }
+
+    public void ShowLevelComplete(string nextScene)
+    {
+        ShowOnly(levelCompleteScreen.transform);
+        levelCompleteScreen.Show(nextScene);
+    }
+
+    private void ShowOnly(Transform screen)
+    {
         inputManager.enabled = false;
 
         foreach (Transform child in transform)
         {
-            if (child != deathScreen.transform)
-            {
-                child.gameObject.SetActive(false);
-            }
+            child.gameObject.SetActive(child == screen);
         }
-
-        deathScreen.Show();
     }
 }
