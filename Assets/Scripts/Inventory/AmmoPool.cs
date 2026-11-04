@@ -32,4 +32,14 @@ public class AmmoPool
         _ammo[type] -= taken;
         return taken;
     }
+
+    public void CopyFrom(AmmoPool other)
+    {
+        _ammo.Clear();
+
+        foreach (KeyValuePair<AmmoType, int> pair in other._ammo)
+        {
+            _ammo[pair.Key] = pair.Value;
+        }
+    }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 public class LevelExit : MonoBehaviour
 {
     [SerializeField, SceneName] private string nextScene;
-    [SerializeField] private PlayerHud hud;
 
     private void Awake()
     {

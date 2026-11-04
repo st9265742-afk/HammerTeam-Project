@@ -54,12 +54,14 @@ public class LevelCompleteScreen : MonoBehaviour
     {
         Time.timeScale = 1f;
         playerHealth.SaveToSession();
+        GameSession.CommitLevelStart();
         SceneManager.LoadScene(_nextScene);
     }
 
     private void Restart()
     {
         Time.timeScale = 1f;
+        GameSession.RestartLevel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

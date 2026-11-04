@@ -18,4 +18,23 @@ public class InventoryState
         _weapons.Add(state);
         return state;
     }
+
+    public InventoryState Clone()
+    {
+        InventoryState copy = new InventoryState
+        {
+            Health = Health,
+            Armor = Armor,
+            CurrentWeaponIndex = CurrentWeaponIndex
+        };
+
+        copy.Ammo.CopyFrom(Ammo);
+
+        foreach (WeaponState weapon in _weapons)
+        {
+            copy.AddWeapon(weapon.Data).MagazineAmmo = weapon.MagazineAmmo;
+        }
+
+        return copy;
+    }
 }
