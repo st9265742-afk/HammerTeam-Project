@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1891717752984025734
+--- !u!1001 &8603884024226048449
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,11 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2015332456922450366, guid: be905e0dd2a13b14d937123fe6a24269, type: 3}
       propertyPath: m_Name
-      value: DoorBlue
-      objectReference: {fileID: 0}
-    - target: {fileID: 2949065421904294842, guid: be905e0dd2a13b14d937123fe6a24269, type: 3}
-      propertyPath: requiredCard
-      value: 1
+      value: DoorKey
       objectReference: {fileID: 0}
     - target: {fileID: 7344360113916843694, guid: be905e0dd2a13b14d937123fe6a24269, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,12 +52,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7458950395316301236, guid: be905e0dd2a13b14d937123fe6a24269, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 74c3393343be5cf47999411eb3331121, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2015332456922450366, guid: be905e0dd2a13b14d937123fe6a24269, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3373942043858375464}
   m_SourcePrefab: {fileID: 100100000, guid: be905e0dd2a13b14d937123fe6a24269, type: 3}
+--- !u!1 &7822969011973087359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2015332456922450366, guid: be905e0dd2a13b14d937123fe6a24269, type: 3}
+  m_PrefabInstance: {fileID: 8603884024226048449}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3373942043858375464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822969011973087359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d1dc5d15aa6de4db4d9411c364710e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyCardLock
+  requiredCard: 2
